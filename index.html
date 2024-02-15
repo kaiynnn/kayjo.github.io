@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>I reaaaallyyy love you</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="welcomeSection" class="section pink-window">
+        <h1>Welcome to your valentines special, Berti!!</h1>
+        <p>Let's set the right tone, shall we?</p>
+        <button onclick="changeSection('songSection')">PRESS MEH :3</button>
+    </div>
+    
+    <div id="songSection" class="section pink-window" style="display:none;">
+        <h1>..ofc it's one of our favourite songs!</h1>
+        <p>Click on the video and continue.. you can do it bebii</p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/QrVc2jFgPEs?si=kmMVCflvobGNg0ib" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+        <button onclick="changeSection('interactiveSection')">PRESS TIS!</button>
+    </div>
+    
+    <div id="interactiveSection" class="section pink-window" style="display:none;">
+        <h1>Now choose bby..</h1>
+        <p>Do you want to be my valentine?         </p>
+        <p>(click nu and see what happens mf.. grr)</p>
+        
+        <div class="buttons-container">
+            <button id="yesButtonInteractive" class="button" onclick="adjustButtonsInteractive('yes')">yesu</button>
+            <button id="noButtonInteractive" class="button" onclick="adjustButtonsInteractive('no')">nu..</button>
+        </div>
+        
+    </div>
+    
+    <div id="instance4" class="section pink-window" style="display:none;">
+        <h1>Now that youre my valentine, I can finally say this is us...</h1>
+        <img src="C:\Users\Gamer\Desktop\UNI\spaß\ed.jpg" alt="A special image">
+        <p>.. but, wanna see something thats even more us bby? :o</p>
+        <button onclick="changeSection('instance5')">CLICK MEH TO SEE!!</button> <!-- Button to go to instance 5 -->
+    </div>
+
+    <div id="instance5" class="section pink-window" style="display:none;">
+        <h1>USSUUU!!</h1>
+        <div class="image-container">
+            <div class="image-with-text">
+                <img src="C:\Users\Gamer\Desktop\UNI\spaß\gj1.jpeg" alt="First special moment">
+                <p>I love you Johiii</p>
+            </div>
+            <!-- Any other content -->
+        </div>
+        <div class="heart"></div> <!-- Ensure this is outside and after the image-container for it to appear at the bottom -->
+    </div>
+
+
+    <script>
+        function changeSection(nextSectionId) {
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.display = 'none'; // Hide all sections
+        });
+        document.getElementById(nextSectionId).style.display = 'flex'; // Show the targeted section
+        }   
+
+
+        function adjustButtonsInteractive(buttonPressed) {
+    var yesButton = document.getElementById('yesButtonInteractive');
+    var noButton = document.getElementById('noButtonInteractive');
+    var containerWidth = document.querySelector('.buttons-container').offsetWidth;
+    var maxScale = 1.5; // Example max scale
+    var scaleIncrement = 0.1;
+    var gapIncrement = 5;
+    var maxGap = 50; // Example max gap
+
+    if (buttonPressed === 'no') {
+        var currentScale = parseFloat(yesButton.dataset.scale || 1);
+        if (currentScale < maxScale) {
+            var newScale = currentScale + scaleIncrement;
+            yesButton.style.transform = `scale(${newScale})`;
+            yesButton.dataset.scale = newScale;
+        }
+
+        // Adjust the gap based on the new scale, ensuring it doesn't exceed the maxGap
+        var currentGap = parseInt(document.querySelector('.buttons-container').style.gap.replace('px', '')) || 20;
+        var newGap = Math.min(currentGap + gapIncrement, maxGap);
+        document.querySelector('.buttons-container').style.gap = `${newGap}px`;
+    } else if (buttonPressed === 'yes') {
+        changeSection('instance4');
+    }
+}
+
+    </script>
+</body>
+</html>

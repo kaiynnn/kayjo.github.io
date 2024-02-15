@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('C:/Users/Gamer/Desktop/UNI/kitty.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+.pink-window {
+    background-color: pink;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 50px; /* Adjust margin to position the window */
+}
