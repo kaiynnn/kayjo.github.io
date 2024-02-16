@@ -5,7 +5,7 @@ body {
     background-size: cover;
     background-position: center;
     color: white;
-    font-family: 'Girl Next Door', cursive; /* Change font family */
+    font-family: 'Brush Script MT', cursive; /* Change font family */
     display: flex; /* Use flexbox to center the content */
     justify-content: center; /* Center content horizontally */
     align-items: center; /* Center content vertically */
